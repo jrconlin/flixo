@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://flixo/skin/options.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://flixo/locale/flixo.dtd" >
+<!--
+  Netflix API assistant main display
+
+  Author: jr conlin
+
+  Copyright 2008: Netflix, Inc.
+
+-->
+<window id="flixoOptions"
+        title="&flixo.options.title;"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        width="600"
+        height="450"
+        persist="screenX screenY"
+        onload="FlixoOpts.init();"
+        >
+    <script src="chrome://flixo/content/flixo/options.js" />
+    <!-- vbox>
+        <toolbox>
+            <menubar id="menubar">
+            <menu><menupopup><menuitem><menuseparator>...
+            </menubar>
+        </toolbox>
+    </vbox -->
+    <vbox id="opt_back">
+<!--
+    <vbox>
+        <groupbox>
+            <caption label="&flixo.options.dev.title;" />
+            <vbox id="opt_devOpts">
+            <hbox>
+                <label control="develKeyToken" class="text" value="OAuth Token:" />
+                <textbox flex="1" id="develKeyToken" oninput="FlixoOpts.activateDevKey();" />
+                <button id="setDevAccessKey" class="set" label="&flixo.options.dev.key.set;" disabled="true" oncommand="FlixoOpts.setDevelKey(this);" />
+            </hbox>
+            <hbox>
+                <label control="develKeySecret" class="text" value="OAuth Secret:" />
+                <textbox flex="1" id="develKeySecret" oninput="FlixoOpts.activateDevKey();" />
+            </hbox>
+            </vbox>
+        </groupbox>
+    </vbox>
+    <separator class="thin"/>
+-->
+    <groupbox>
+        <caption label="Profiles" />
+        <hbox id="profileInfo">
+            <vbox flex="1" id="profileListBox">
+                <vbox flex="1" orient="vertical">
+                    <label  for="profileList" value="&flixo.options.user.profilelist.title;" />
+                    <listbox id="profileList" flex="1" select="single" onselect="FlixoOpts.profileListSelect(this);" />
+                </vbox>
+            </vbox>
+            <vbox flex="4">
+                <hbox>
+                    <label control="profile_name" value="&flixo.options.user.profile_name;"/>
+                    <textbox class="profile_entry profile_name" id="profile_name" flex="2" disabled="true"/>
+                    <textbox class="profile_entry" id="profile_num" style="display:none"/>
+                </hbox>
+                <groupbox flex="1">
+                    <caption label="&flixo.options.user.profile;" />
+                    <grid orient="vertical" >
+                        <columns>
+                            <column />
+                            <column flex="2" />
+                        </columns>
+                        <rows>
+                            <row flex="1" />    <!-- vcenter the elements -->
+                            <row orient="horizontal">
+                                <label class="lbl" control="profile_consumer_key" value="&flixo.options.user.profile_consumer_key;" />
+                                <textbox class="profile_entry" id="profile_consumer_key" disabled="true" flex="2"/>
+                            </row>
+                            <row orient="horizontal">
+                                <label class="lbl" control="profile_shared_secret" value="&flixo.options.user.profile_shared_secret;" />
+                                <textbox class="profile_entry" id="profile_shared_secret" disabled="true" flex="2"/>
+                            </row>
+                            <row>
+                                <label />
+                                <button id="fetchOauth" label="&flixo.options.user.fetch_oauth_info;" oncommand="FlixoOpts.fetchOAuthInfo();" disabled="false"/>
+                            </row>
+                            <row orient="horizontal">
+                                <label class="lbl" control="profile_oauth_token" value="&flixo.options.user.profile_oauth_token;" />
+                                <textbox class="profile_entry" id="profile_oauth_token" disabled="true" flex="2" />
+                            </row>
+                            <row orient="horizontal">
+                                <label class="lbl" control="profile_oauth_secret" value="&flixo.options.user.profile_oauth_secret;" />
+                                <textbox class="profile_entry" id="profile_oauth_secret" disabled="true" flex="2" />
+                            </row>
+                            <row orient="horizontal">
+                                <label class="lbl" control="profile_user_id" value="&flixo.options.user.profile_user_id;" />
+                                <textbox class="profile_entry" id="profile_user_id" disabled="true" flex="2" />
+                            </row>
+                            <row orient="horizontal">
+                                <label class="lbl" control="profile_appname" value="&flixo.options.user.profile_appname;" />
+                                <textbox class="profile_entry" id="profile_oauth_appname" disabled="true" flex="2" />
+                            </row>
+                            <row orient="horizontal">
+                                <label />
+                                <hbox align="right">
+                                    <input class="profile_entry" id="profile_state" label="Set Active" disabled="true" oncommand="FlixoOpts.setActive();"/>
+                                    <button id="button_delete" label="&flixo.options.buttons.delete;" disabled="true" oncommand="FlixoOpts.deleteProfile();" />
+                                    <button id="button_action" label="&flixo.options.buttons.add;" disabled="true" oncommand="FlixoOpts.buttonCmd();" />
+                                </hbox>
+                            </row>
+                        </rows>
+                    </grid>
+                </groupbox>
+                <hbox flex="2" />
+            </vbox>
+        </hbox>
+    </groupbox>
+    <groupbox>
+        <caption label="Host Patterns" />
+        <vbox>
+        <hbox>
+        <label for="hostPatterns" value="&flixo.options.host_patterns;" />
+        </hbox>
+        <hbox align='right'>
+            <textbox id="hostPatterns" flex="1" oninput="FlixoOpts.activeButton('setHostPattern')" />
+            <button id="setHostPattern" oncommand="FlixoOpts.setHostPatterns()" label="&flixo.options.host_patterns.set;" disabled="true"/>
+        </hbox>
+        </vbox>
+    </groupbox>
+    <groupbox id="flixoOptsGeneral">
+        <caption label="&flixo.options.general.title;" />
+            <vbox>
+                <checkbox disabled="true" id="newtab" label="&flixo.options.general.newtab;" checked="true" oncommand="FlixoOpts.togglePref('newtab');" />
+                <spacer flex="2" />
+            </vbox>
+    </groupbox>
+    </vbox>
+</window>

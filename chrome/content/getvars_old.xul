@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://flixo/skin/options.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://flixo/locale/flixo.dtd" >
+<!--
+  Netflix API assistant main display
+
+  Author: jr conlin
+
+  Copyright 2008: Netflix, Inc.
+
+-->
+<window id="flixoVars"
+        title="Flixo"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        width="600"
+        height="400"
+        persist="screenX screenY"
+        onload="Flixo_getVars.init();"
+        >
+    <script src="chrome://flixo/content/flixo/getvars.js" />
+    <vbox>
+    <label value="Arguments:" />
+        <grid>
+            <columns>
+                <column />
+                <column flex="1" />
+            </columns>
+            <rows>
+                <row>
+                    <label control="vars_host" value="Force host:" />
+                    <textbox class="vars_entry" id="vars_host"/>
+                </row>
+                <groupbox id="tokens">
+                    <caption label="URI Arguments" />
+                </groupbox>
+            </rows>
+        </grid>
+        <hbox align="right">
+            <button id="submit" label="Go!"/>
+        </hbox>
+    </vbox>
+</window>

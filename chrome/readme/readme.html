@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Using Flixo</title>
+</head>
+<body>
+
+<h1>Using Flixo</h1>
+
+<p>Flixo does a few things to make your life a bit easier.</p>
+
+<ol>
+<li>It automatically OAuth signs requests</li>
+<li>It queries for replacement tokens in strings.</li>
+<li>It provides Expand categories and views for results</li>
+<ol>
+
+<p>Flixo is very much a work in progress and <a href="mailto:jconlin@netflix.com">I'd
+love to hear your complaints and ideas.</a></p>
+
+<h2>Installing</h2>
+<p> To install Flixo, simply grab the flixo.xpi file and drop it onto Firefox.</p>
+
+<h2>The Flixo Bar</h2>
+
+<h3>Settings</h3>
+<p>This is where you create profiles for Flixo to use. It's important to create
+at least one profile before using Flixo. To do so, click "Create New Profile" in
+the Active User Profiles section.<p>
+<h4>Profiles</h4>
+<dl>
+<dt>Profile Name:</dt>
+<dd>This can be anything and allows you to remember what this profile is. </dd>
+<dt>Consumer Key:</dt>
+<dd>This is the value provided to you after registration.</dd>
+<dt>Shared Secret:</dt>
+<dd>This value is also provided to you after registration.</dd>
+<dt>User ID</dt>
+<dd>This value is the encoded User ID for your user. This is normally provided as part of the
+access token.</dd>
+<dt>The following items will eventually be auto fetched, however for now please enter them in by hand.</dt>
+<dt>User Token</dt>
+<dd>The OAuth User Token value. Normally provided as part of the access token</dd>
+<dt>User Secret</dt>
+<dd>The OAuth User Secret value. Normally provided as part of the access token and should not be
+shared publically.</dd>
+<dt>Application Name</dt>
+<dd>The pre-registered application name for this Token/Secret</dd>
+</dl>
+<p>Once you make any changes or additions, remember to click the [Add/Update Profile] button to
+save your work.</p>
+<h4>Host Patterns</h4>
+<p>This is a comma separated list of the root hosts where Flixo should sign requests. These are matched
+using a regular expression, so be careful how you enter the host. (e.g. 'netflix.com' would match against
+any *.netflix.com host.)</p>
+<p>As with the Profiles section, Click "Set" to save your changes.</p>
+<h3>Accounts</h3>
+<p>This is a list of the created Profiles. You can select the profile you wish
+to make active by clicking on it. The Active profile is marked with a radio button
+dot next to the name.</p>
+<h3>Send Auth Info</h3>
+<p>This allows you to determine what level of Auth information to send out.</p>
+<h3>Expand</h3>
+<p>For catalog queries that have "expandable" elements, provide the list of items to automatically expand.</p>
+<h3>View</h3>
+<p>Return the results as Plain ol' XML, JSON, Atom XML format or Atom</p>
+<h3>Jump To</h3>
+<p>Just a handy set of links to jump to. Top of API list, the User branch or the Catalog branch.</p>
+<h2>Flixotize</h2>
+<p>If you select a link, and right click (or bring up the context menu), you'll see an option to "flixotize"
+the link. (make sure you select the entire link.)</p>
+<p>Flixo-ing a link will ask to substitute variables in the template (if any
+exist) and load it to the current window. This will autosign the URL for you.</p>
+</body>

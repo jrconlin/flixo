@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="flixo@netflix.com"
+                   em:version="0.18.0"
+                   em:type="2"
+                   em:name="Flixo"
+                   em:description="Utility for working with the Netflix API"
+                   em:creator="Netflix.com"
+                   em:developer="jr conlin"
+                   em:homepageURL="http://developer.netflix.com/"
+                   em:iconURL="chrome://flixo/skin/nficon.png"
+                   em:aboutURL="chrome://flixo/content/about.xul"
+                   em:updateUrl="http://developer.netflix.com/files/update.rdf"
+                   em:updateKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDX1WX1FLL/k7du66kHJmkyxAh5EzOmwDVS420DpkA6SiHSmGIYxyi1B1a8XfSNj6bpjeVhWuodfVENpcDCRZ8GZY7oxZgNYoiLlvGrM7PPjm5RRGmTYfFBq8NQJjPS/F+2PggkCCPykOmRKcnT8vi1oRJCXZB+xA5oiKAXJtpiRQIDAQAB">
+    <em:targetApplication RDF:resource="rdf:#$809TG3"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$809TG3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:maxVersion="3.*"
+                   em:minVersion="3.0" />
+</RDF:RDF>

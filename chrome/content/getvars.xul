@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://flixo/skin/options.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://flixo/locale/flixo.dtd" >
+<!--
+  Netflix API assistant main display
+
+  Author: jr conlin
+
+  Copyright 2008: Netflix, Inc.
+
+-->
+<window id="flixoVars"
+        title="Please supply values for the missing arguments:"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        persist="screenX screenY"
+        onload="Flixo_getVars.init();"
+        >
+    <script src="chrome://flixo/content/flixo/getvars.js" />
+    <vbox>
+        <spacer />
+        <grid>
+            <columns>
+                <column />
+                <column flex="1" />
+            </columns>
+            <rows id="items">
+            </rows>
+        </grid>
+        <hbox align="right">
+            <button id="submit" label="Go!" oncommand="Flixo_getVars.submit();"/>
+        </hbox>
+    </vbox>
+</window>

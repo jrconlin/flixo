@@ -1,0 +1,24 @@
+#flixo-view {
+    display:none;
+}
+
+#flixo-expand-filmography {
+}
+
+#flixo-log {
+    background: transparent url(chrome://flixo/skin/nficon.png) no-repeat center;
+    }
+
+#flixo_about {
+    background:#FFF;
+}
+
+#flixo_about .h1 {
+    font: 200% Arial;
+    text-align: center;
+}
+
+#flixo_about .h2 {
+    font: 150% Arial italic;
+    text-align:center;
+}

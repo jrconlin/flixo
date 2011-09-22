@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://flixo/skin/flixo.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://flixo/locale/flixo.dtd" >
+<!--
+  Netflix API assistant main display
+
+  Author: jr conlin
+
+  Copyright 2008: Netflix, Inc.
+
+-->
+<overlay id="flixo"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<!-- Elements to incorporate into the browser  (Make sure this matches the id EXACTLY)-->
+  <popup id="contentAreaContextMenu">
+    <menuitem
+        id="flixo-content-flixotizeEdit"
+        label="Flixotize (Edit)"
+        insertafter='context-searchselect'
+        hidden="true"
+        oncommand="Flixo.flixotizeEdit()"/>
+    <menuitem
+        id="flixo-content-flixotize"
+        label="Flixotize"
+        insertafter='context-searchselect'
+        hidden="true"
+        oncommand="Flixo.flixotize()"/>
+  </popup>
+
+  <toolbox id="navigator-toolbox">
+    <toolbar id="flixo-toolbar" class="chromeclass-toolbar" toolbarname="&flixo.name;"
+             collapsed="false" context="toolbar-context-menu" customizable="true" hidden="false"
+             inherits="collapsed,hidden" mode="full" persist="collapsed,hidden"
+             defaultset="flixo-settings,flixo-accounts,flixo-sendAuth,flixo-expand,flixo-view,flixo-jump" >
+      <!-- Image seems to want to ignore the width/height for toolbars. -->
+      <!-- image id="flixo-logo" width="16" height="16" src="chrome://flixo/skin/nficon.png" / -->
+      <spacer class="small" />
+      <toolbarbutton id="flixo-settings" class="" label="&flixo.settings;" oncommand="Flixo.showOptions()" image="chrome://flixo/skin/nficon.png" />
+      <toolbarbutton id="flixo-accounts" class="" type="menu" label="&flixo.accounts;" >
+        <menupopup id="flixo-accounts-list" onpopupshowing="Flixo.populateAccounts(event);" onpopuphidden="Flixo.clearAccounts(event);" />
+      </toolbarbutton>
+      <toolbarbutton id="flixo-sendAuth" type="menu" label="&flixo.auth;">
+        <menupopup id="flixo-sendAuth-list">
+          <menuitem id="flixo-sendNoAuth" type="radio" value="0" label="&flixo.auth.none;" oncommand="Flixo.setAuthLevel(this);" />
+          <menuitem id="flixo-sendConsumerAuth" type="radio" value="1" label="&flixo.auth.consumer;" oncommand="Flixo.setAuthLevel(this);" checked="true"/>
+          <menuitem id="flixo-sendUserAuth" type="radio" value="2" label="&flixo.auth.user;" oncommand="Flixo.setAuthLevel(this);" />
+        </menupopup>
+      </toolbarbutton>
+      <toolbarbutton id="flixo-expand" type="menu" label="&flixo.expand;" onpopupshowing="Flixo.populateExpands(event);">
+        <menupopup id="flixo-expand-list" >
+          <menuitem id="flixo-expand-awards" label="&flixo.expand.awards;" value="Awards" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-cast" label="&flixo.expand.cast;" value="cast" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-directors" label="&flixo.expand.directors;" value="directors" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-discs" label="&flixo.expand.discs;" value="discs" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-episodes" label="&flixo.expand.episodes;" value="episodes" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-filmography" label="&flixo.expand.filmography;" value="filmography" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-formats" label="&flixo.expand.formats;" value="formats" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-langagesandaudio" label="&flixo.expand.languagesandaudio;" value="languages and audio" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-screenformats" label="&flixo.expand.screenformats;" value="screen formats" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-seasons" label="&flixo.expand.seasons;" value="seasons" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-similars" label="&flixo.expand.similars;" value="similars" type="checkbox" oncommand="Flixo.setExpand(this);" />
+          <menuitem id="flixo-expand-synopsis" label="&flixo.expand.synopsis;" value="synopsis" type="checkbox" oncommand="Flixo.setExpand(this);" />
+        </menupopup>
+      </toolbarbutton>
+      <toolbarbutton id="flixo-view" type="menu" label="&flixo.view;" >
+      <menupopup >
+        <menuitem id="flixo-viewas-pox" label="&flixo.view.pox;" value="pox" type="radio" checked="true" oncommand="Flixo.setView(this)" />
+        <menuitem id="flixo-viewas-json" label="&flixo.view.json;" type="radio" value="json" oncommand="Flixo.setView(this)" />
+        <menuitem id="flixo-viewas-atomx" label="&flixo.view.atomx;" type="radio" value="atomx" oncommand="Flixo.setView(this)" />
+        <menuitem id="flixo-viewas-atom" label="&flixo.view.atom;" type="radio" value="atom" oncommand="Flixo.setView(this)" />
+      </menupopup>
+    </toolbarbutton>
+    <toolbarbutton id="flixo-jump" label="&flixo.jumpto;" type="menu" oncommand="Flixo.openMenu(this)">
+      <menupopup>
+        <menuitem id="flixo-jump-root" label="&flixo.jumpto.root;" value='http://api.netflix.com/' oncommand="Flixo.jumpTo(this)" />
+        <menuitem id="flixo-jump-catalog" label="&flixo.jumpto.catalog;" value='http://api.netflix.com/catalog' oncommand="Flixo.jumpTo(this)" />
+        <menuitem id="flixo-jump-users" label="&flixo.jumpto.users;" value='http://api.netflix.com/users' oncommand="Flixo.jumpTo(this)" />
+      </menupopup>
+    </toolbarbutton>
+    <toolbarspacer flex="1" />
+    </toolbar>
+  </toolbox>
+
+
+  <!-- statusbar id="status-bar" >
+    <statusbarpanel id="flixo-status" label="flixo" />
+  </statusbar -->
+
+  <script type="application/javascript" src="chrome://flixo/content/flixo/flixo.js" />
+  <script type="application/javascript" src="chrome://flixo/content/flixo/nf_api.js" />
+  <script type="application/javascript" src="chrome://flixo/content/flixo/oauth.js" />
+  <script type="application/javascript" src="chrome://flixo/content/flixo/sha1.js" />
+</overlay>

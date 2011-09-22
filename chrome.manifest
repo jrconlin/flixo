@@ -1,0 +1,10 @@
+#General settings
+content flixo chrome/content/
+skin flixo classic/1.0 chrome/skin/
+readme flixo chrome/readme/
+
+#Overlays
+overlay chrome://browser/content/browser.xul chrome://flixo/content/flixo.xul
+
+#Locale
+locale flixo en-US      chrome/locale/en-US/

@@ -1,0 +1,55 @@
+#flixoOptions {
+    width: 600px;
+    height: 300px;
+    /*
+     background: url(http://cdn-0.nflximg.com/us/layout/page_titles/bgvignette/950w/MemberHome_DVD.jpg) center left no-repeat;
+    */
+}
+#profileList .new {
+    color:#888;
+    font-style:italic;
+    }
+#profileList #profileInfo label {
+    text-align:right;
+}
+
+#profileList #profileInfo #profile_num {
+    display:none;
+}
+/*
+#button_delete {
+    display:none;
+}
+*/
+#setActive {
+    display:none;
+    }
+
+#flixoOptions #opt_devOpts label.text {
+    width: 18ex;
+    text-align:right;
+    display:block;
+    float:left;
+}
+
+#flixoOptions #flixoOptsGeneral {
+        display:none;
+}
+
+#flixoOptions #profileInfo label.lbl {
+    text-align:right;
+}
+#flixoOptions #profileInfo #profileListBox {
+    width: 20ex;
+}
+
+#flixoOptions #profileInfo #profileListBox label {
+    text-align: left;
+}
+
+#flixoVars {max-height: 600px; min-width: 250px; max-width:400px;}
+#flixoVars .title {font-size: 130%; margin:.5em .5em 1em .5em;}
+#flixoVars #items {margin: 4px;}
+#flixoVars #items row {line-height:2em; margin-bottom: .5em;}
+#flixoVars #items label {text-align: right; margin: .5em;vertical-align:bottom;}
+#flixoVars #items textbox { width: 40ex;}

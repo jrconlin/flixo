@@ -1,0 +1,62 @@
+<!-- toolbar -->
+<!ENTITY flixo.name "Flixo">
+<!ENTITY flixo.settings "Settings">
+<!ENTITY flixo.accounts "Profiles">
+<!ENTITY flixo.expand "Expand">
+<!ENTITY flixo.view "View">
+<!ENTITY flixo.view.pox "POX (Plain 'ol XML)">
+<!ENTITY flixo.view.json "JSON">
+<!ENTITY flixo.view.atomx "Atom XML">
+<!ENTITY flixo.view.atom "Atom">
+<!ENTITY flixo.jumpto "Jump To">
+<!ENTITY flixo.tbd "To Be Completed">
+
+<!ENTITY flixo.auth "Send Auth Info"> 
+<!ENTITY flixo.auth.none "Send No Authorization">
+<!ENTITY flixo.auth.consumer "Send Consumer Authorization">
+<!ENTITY flixo.auth.user "Send User Authorization">
+
+<!ENTITY flixo.expand.awards "Awards">
+<!ENTITY flixo.expand.cast "Cast">
+<!ENTITY flixo.expand.directors "Directors">
+<!ENTITY flixo.expand.discs "Discs">
+<!ENTITY flixo.expand.episodes "Episodes">
+<!ENTITY flixo.expand.filmography "Filmography">
+<!ENTITY flixo.expand.formats "Formats">
+<!ENTITY flixo.expand.languagesandaudio "Languages and Audio">
+<!ENTITY flixo.expand.screenformats "Screen Formats">
+<!ENTITY flixo.expand.seasons "Seasons">
+<!ENTITY flixo.expand.similars "Similars">
+<!ENTITY flixo.expand.synopsis "Synopsis">
+
+<!ENTITY flixo.options.title "Flixo Options">
+<!ENTITY flixo.options.dev.title "Developer Info">
+<!ENTITY flixo.options.dev.token "Token Secret">
+<!ENTITY flixo.options.dev.consumer "Consumer Secret">
+<!ENTITY flixo.options.dev.key.set "Set">
+
+<!ENTITY flixo.options.user.title "User Profiles">
+<!ENTITY flixo.options.user.profilelist.title "Active User Profiles">
+<!ENTITY flixo.options.user.profile "Default Values for Profile">
+<!ENTITY flixo.options.user.profile_name "Profile Name:">
+<!ENTITY flixo.options.user.profile_consumer_key "API Key:">
+<!ENTITY flixo.options.user.profile_shared_secret "Shared Secret:">
+<!ENTITY flixo.options.user.fetch_oauth_info "Fetch User Access Token">
+<!ENTITY flixo.options.user.profile_oauth_token "Access Token:">
+<!ENTITY flixo.options.user.profile_oauth_secret "Token Secret:">
+<!ENTITY flixo.options.user.profile_user_id "User ID:">
+<!ENTITY flixo.options.user.profile_appname "Application Name:">
+
+<!ENTITY flixo.options.buttons.delete "Delete Profile">
+<!ENTITY flixo.options.buttons.add "Add New Profile">
+<!ENTITY flixo.options.buttons.update "Update Profile">
+
+<!ENTITY flixo.options.host_patterns "Comma Seperated list of hosts (e.g. example.org)" >
+<!ENTITY flixo.options.host_patterns.set "Set" >
+
+<!ENTITY flixo.options.general.title "General Options">
+<!ENTITY flixo.options.general.newtab "Open Links in New Tab">
+
+<!ENTITY flixo.jumpto.root "Root">
+<!ENTITY flixo.jumpto.catalog "Catalog">
+<!ENTITY flixo.jumpto.users "Users">

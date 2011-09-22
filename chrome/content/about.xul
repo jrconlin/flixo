@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://flixo/skin/flixo.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://flixo/locale/flixo.dtd" >
+<!--
+  Netflix API assistant About box
+
+  Author: jr conlin
+
+  Copyright 2008: Netflix, Inc.
+
+-->
+
+<window id="flixo_about"
+        title="About Flixo"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onload="FlixoAbout.init();"
+        context="about"
+        class="about"
+        >
+    <hbox>
+        <vbox>
+        <image src="chrome://flixo/skin/colorlogo.gif" />
+        <spacer flex="1" />
+        </vbox>
+        <spacer />
+        <spacer flex="2" />
+        <vbox flex="1">
+            <description class="h1">Netflix API Assistant</description>
+            <description class="h2">"flixo"</description>
+            <description>This plugin replaces tokens in the docs with your
+                information,<br />making those examples signifcantly more useful.</description>
+        </vbox>
+    </hbox>
+</window>
