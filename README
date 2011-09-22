@@ -1,0 +1,8 @@
+This extension was built to support the Netflix API. Sadly, that API is 
+no longer supported, so I am making the code available should anyone find
+it reasonably useful.
+
+This uses the OAuthSimple library (See other repositories) as well as
+copious baleing wire and bubblegum.
+
+
